@@ -15,12 +15,16 @@ export const GET = async ({ url }) => {
 
 	// Filter the results based on type and year
 	const filtered = json.results.filter((result) => {
-		if (result.media_type === 'movie') {
-			return new Date(result.release_date).getFullYear() === parseInt(year)
-		} else {
-			return new Date(result.first_air_date).getFullYear() === parseInt(year)
-		}
+		const releaseYear =
+			result.media_type === 'movie'
+				? new Date(result.release_date).getFullYear()
+				: new Date(result.first_air_date).getFullYear()
+
+		// Ensure the year is valid and within ±1 year of the query
+		return !isNaN(releaseYear) && Math.abs(releaseYear - year) <= 1
 	})
+
+	console.log(filtered[0])
 
 	// Return the first filtered result as a response
 	return new Response(JSON.stringify(filtered[0]))
