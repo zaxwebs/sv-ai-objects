@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button/index.js'
-	import { Textarea } from '$lib/components/ui/textarea/index.js'
 	import { Input } from '$lib/components/ui/input/index.js'
 	import { Experimental_StructuredObject } from '@ai-sdk/svelte'
 	import { movieSchema } from '../../schemas/movieSchema'
+	import RecommendationCard from '$lib/components/RecommendationCard.svelte'
 
 	const structuredObject = new Experimental_StructuredObject({
 		api: '/api/movie-recommendation',
@@ -20,7 +20,7 @@
 	}
 </script>
 
-<main class="max-w-6xl mx-auto">
+<main class="max-w-[1400px] mx-auto">
 	<section class="p-4">
 		<form
 			class="flex gap-4 max-w-3xl mx-auto"
@@ -40,32 +40,7 @@
 	<section class="p-4">
 		<div class="grid grid-cols-2 gap-4">
 			{#each structuredObject.object?.movies ?? [] as movie, i (i)}
-				<div class="border rounded p-4">
-					<div class="space-y-2">
-						<div>
-							<span class="text-lg font-semibold">
-								{movie?.title}
-							</span>
-							<span class="text-sm text-gray-500">
-								{movie?.releaseYear}
-							</span>
-						</div>
-
-						<div>
-							{movie?.description}
-						</div>
-						<div>
-							{movie?.recommendationReason}
-						</div>
-						{#if movie?.recommendationReason}
-							<Button
-								target="_blank"
-								href="https://www.youtube.com/results?search_query={movie?.title} trailer"
-								>Trailer
-							</Button>
-						{/if}
-					</div>
-				</div>
+				<RecommendationCard {movie} />
 			{/each}
 		</div>
 	</section>
