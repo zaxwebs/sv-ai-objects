@@ -25,7 +25,7 @@
 	})
 </script>
 
-<div class="border rounded flex gap-6 bg-white overflow-hidden">
+<div class="border rounded flex gap-2 bg-white overflow-hidden">
 	{#if details}
 		<img
 			class=" w-40 aspect-[600/900] flex-shrink-0 block"
