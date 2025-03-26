@@ -26,8 +26,11 @@
 
 <main class="max-w-[1400px] mx-auto">
 	<section class="p-4 py-8 flex flex-col items-center max-w-xl mx-auto text-center">
-		<h1 class="text-4xl font-bold mb-6 font-[boldonse]">Flix AI</h1>
-		<p class="text-gray-600">
+		<div class="flex items-center gap-2 mb-6">
+			<img class="w-14" src="/images/popcorn_color.svg" alt="popcorn" />
+			<h1 class="text-4xl font-bold font-[boldonse] text-pink-600">Flix AI</h1>
+		</div>
+		<p class="text-slate-700">
 			Need movie recommendations? Simply tell us what you're in the mood for and we'll take
 			care of the rest. You can ask for recommendations based on genres, actors, or even
 			specific movies — just like asking a friend.
@@ -42,6 +45,7 @@
 			}}
 		>
 			<Input
+				class="border-slate-300"
 				type="text"
 				placeholder="What kinda movie would you like to watch?"
 				bind:value={input}

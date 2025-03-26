@@ -1,6 +1,5 @@
 import { streamObject } from 'ai'
 import { createOpenAI } from '@ai-sdk/openai'
-import { z } from 'zod'
 import { env } from '$env/dynamic/private'
 import { movieSchema } from '../../../schemas/movieSchema'
 
