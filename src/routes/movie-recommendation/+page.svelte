@@ -36,7 +36,7 @@
 			specific movies — just like asking a friend.
 		</p>
 	</section>
-	<section class="p-4">
+	<section class="p-4 mb-6">
 		<form
 			class="flex gap-4 max-w-3xl mx-auto"
 			onsubmit={(e) => {
@@ -45,7 +45,6 @@
 			}}
 		>
 			<Input
-				class="border-slate-300"
 				type="text"
 				placeholder="What kinda movie would you like to watch?"
 				bind:value={input}
@@ -53,11 +52,13 @@
 			<Button type="submit" disabled={structuredObject.loading}>Get Recommendations</Button>
 		</form>
 	</section>
-	<section class="p-4">
-		<div class="grid grid-cols-2 gap-4">
-			{#each structuredObject.object?.movies ?? [] as movie, i (i)}
-				<RecommendationCard {movie} />
-			{/each}
-		</div>
-	</section>
+	{#if structuredObject.object?.movies}
+		<section class="p-4">
+			<div class="grid grid-cols-2 gap-4">
+				{#each structuredObject.object?.movies ?? [] as movie, i (i)}
+					<RecommendationCard {movie} />
+				{/each}
+			</div>
+		</section>
+	{/if}
 </main>

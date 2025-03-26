@@ -25,19 +25,17 @@
 	})
 </script>
 
-<div class="border rounded p-4 flex gap-6">
+<div class="border rounded flex gap-6 bg-white overflow-hidden">
 	{#if details}
 		<img
-			class="rounded w-40 aspect-[600/900] flex-shrink-0 block border border-gray-100"
+			class=" w-40 aspect-[600/900] flex-shrink-0 block"
 			src={'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/' + details?.poster_path}
 			alt="poster"
 		/>
 	{:else}
-		<Skeleton
-			class="rounded w-40 aspect-[600/900] flex-shrink-0 block border border-gray-100"
-		/>
+		<Skeleton class=" w-40 aspect-[600/900] flex-shrink-0 block" />
 	{/if}
-	<div class="flex flex-col gap-4 justify-between">
+	<div class="flex flex-col gap-4 justify-between p-4">
 		<div class="space-y-1">
 			<div>
 				<span class="text-lg font-semibold">
