@@ -20,7 +20,19 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Flix AI</title>
+</svelte:head>
+
 <main class="max-w-[1400px] mx-auto">
+	<section class="p-4 py-8 flex flex-col items-center max-w-xl mx-auto text-center">
+		<h1 class="text-4xl font-bold mb-6 font-[boldonse]">Flix AI</h1>
+		<p class="text-gray-600">
+			Need movie recommendations? Simply tell us what you're in the mood for and we'll take
+			care of the rest. You can ask for recommendations based on genres, actors, or even
+			specific movies — just like asking a friend.
+		</p>
+	</section>
 	<section class="p-4">
 		<form
 			class="flex gap-4 max-w-3xl mx-auto"
@@ -31,7 +43,7 @@
 		>
 			<Input
 				type="text"
-				placeholder="What kind of movie would you like to watch?"
+				placeholder="What kinda movie would you like to watch?"
 				bind:value={input}
 			/>
 			<Button type="submit" disabled={structuredObject.loading}>Get Recommendations</Button>

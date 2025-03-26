@@ -24,8 +24,6 @@ export const GET = async ({ url }) => {
 		return !isNaN(releaseYear) && Math.abs(releaseYear - year) <= 1
 	})
 
-	console.log(filtered[0])
-
 	// Return the first filtered result as a response
 	return new Response(JSON.stringify(filtered[0]))
 }
