@@ -11,11 +11,9 @@
 	})
 
 	let input = $state('')
-	let userMessage = $state('')
 
 	function handleSubmit(event: Event) {
 		event.preventDefault()
-		userMessage = input
 		structuredObject.submit(input)
 		input = ''
 	}
@@ -40,14 +38,14 @@
 			AI Movie Recommendations
 		</h1>
 		<p class="text-slate-700">
-			Need movie recommendations? Just tell us what you're in the mood for, and we'll take
+			Need movie recommendations? Simply tell us what you're in the mood for, and we'll take
 			care of the rest. Get suggestions based on genres, actors, or even specific movies—just
 			like asking a friend!
 		</p>
 	</section>
 
 	<section class="p-4 mb-6">
-		<form class="flex gap-4 max-w-3xl mx-auto" on:submit={handleSubmit}>
+		<form class="flex gap-4 max-w-3xl mx-auto" onsubmit={handleSubmit}>
 			<Input
 				type="text"
 				placeholder="What kind of movie would you like to watch?"

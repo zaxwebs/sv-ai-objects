@@ -1,6 +1,7 @@
 <script>
 	import { Button } from '$lib/components/ui/button/index.js'
 	import { Skeleton } from '$lib/components/ui/skeleton/index.js'
+	import RecommendationReason from './RecommendationReason.svelte'
 
 	let { movie } = $props()
 
@@ -28,12 +29,12 @@
 <div class="border rounded flex gap-2 bg-white overflow-hidden">
 	{#if details}
 		<img
-			class=" w-40 aspect-[600/900] flex-shrink-0 block"
+			class=" w-52 aspect-[600/900] flex-shrink-0 block object-cover"
 			src={'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/' + details?.poster_path}
 			alt="poster"
 		/>
 	{:else}
-		<Skeleton class=" w-40 aspect-[600/900] flex-shrink-0 block" />
+		<Skeleton class=" w-52 aspect-[600/900] flex-shrink-0 block" />
 	{/if}
 	<div class="flex flex-col gap-4 justify-between p-4">
 		<div class="space-y-1">
@@ -46,11 +47,11 @@
 				</span>
 			</div>
 
-			<div>
-				{movie?.description}
-			</div>
-			<div class="italic text-slate-700">
-				{movie?.recommendationReason}
+			<div class="space-y-4">
+				<div>
+					{movie?.description}
+				</div>
+				<RecommendationReason reason={movie?.recommendationReason} />
 			</div>
 		</div>
 
